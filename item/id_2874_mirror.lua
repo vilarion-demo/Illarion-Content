@@ -27,18 +27,10 @@ local ladderPosition = position(-32,193,-8)
 local mirrorPosition = position(-28,193,-8)
 
 function M.LookAtItem(User, Item)
-
     local lookAt = lookat.GenerateLookAt(User, Item)
 
-    if Item.pos == mirrorPosition and User:getFaceTo() == Character.dir_east and User.pos == position(-29, 193, -8) then
-        lookAt.description = common.GetNLS("Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel.",
-                                                "Behind your back you can clearly see a ladder in the mirror.")
-
-        if ( not common.isItemIdInFieldStack(35, ladderPosition)) then
-            world:createItemFromId(35, 1, ladderPosition, true, 999, nil)
-        end
-    end
-
+    lookAt = quest.irundar.mirror.LookAt(User, Item, lookAt)
+    
     return lookAt
 end
 
@@ -48,5 +40,6 @@ function M.UseItem(User, SourceItem)
     common.TurnTo( User, SourceItem.pos );
     User:inform(output);
 end
+
 return M
 
