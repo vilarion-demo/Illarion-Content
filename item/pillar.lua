@@ -19,6 +19,7 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local vision = require("content.vision")
 local altars = require("item.altars")
+local irundar = require("quest.irundar.armourladder")
 
 local M = {}
 
@@ -150,6 +151,8 @@ end
 
 
 function M.UseItem(User, SourceItem, ltstate)
+
+    irundar.use(User, SourceItem)
 
     if SourceItem:getData("elaraStatueRunewick") == "true" then
         altars.UseItem(User, SourceItem)
