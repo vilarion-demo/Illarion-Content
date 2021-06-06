@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-local ladderId = 35
+local ladder = 35
 local ladderPosition = position(330, 536, -24)
 local userPosition = position(333, 536, -24)
 local mirrorPosition = position(334, 536, -24)
@@ -33,8 +33,8 @@ function M.LookAt(user, item, lookAt)
                     "Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel.",
                     "Behind your back you can clearly see a ladder in the mirror.")
 
-            if not common.isItemIdInFieldStack(ladderId, ladderPosition) then
-                world:createItemFromId(ladderId, 1, ladderPosition, true, 999, nil)
+            if not common.isItemIdInFieldStack(ladder, ladderPosition) then
+                world:createItemFromId(ladder, 1, ladderPosition, true, 999, nil)
             end
         else
             lookAt.description = common.GetNLS(user,
@@ -47,7 +47,7 @@ function M.LookAt(user, item, lookAt)
 end
 
 function M.MoveToField(user)
-    if user.pos == ladderPosition and common.isItemIdInFieldStack(ladderId, ladderPosition) then
+    if user.pos == ladderPosition and common.isItemIdInFieldStack(ladder, ladderPosition) then
         user:warp(destinationPosition)
     end
 end
@@ -61,9 +61,9 @@ function M.MoveFromField(user)
 end
 
 function removeLadder(user)
-    if common.isItemIdInFieldStack(ladderId, ladderPosition)  then
+    if common.isItemIdInFieldStack(ladder, ladderPosition)  then
 	    common.InformNLS(user, "Als du dich entfernst ist die Leiter verschwunden.", "As you turn away, the ladder has vanished.")
-        common.removeItemIdFromFieldStack(ladderId, ladderPosition)
+        common.removeItemIdFromFieldStack(ladder, ladderPosition)
     end
 end
 

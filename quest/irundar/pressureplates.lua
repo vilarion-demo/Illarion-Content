@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-local wallId = 287
+local wall = 287
 local northernPlate = position(370, 522, -28)
 local southernPlate = position(370, 532, -28)
 local wallPosition = position(365, 527, -28)
@@ -32,7 +32,7 @@ function M.MoveToField(user)
 
     if world:isCharacterOnField(southernPlate)
             and world:isCharacterOnField(northernPlate) then
-        common.removeItemIdFromFieldStack(wallId, wallPosition)
+        common.removeItemIdFromFieldStack(wall, wallPosition)
     end
 end
 
@@ -40,8 +40,8 @@ end
 function M.MoveFromField(user)
     world:makeSound(lockSound, user.pos)
 
-    if not common.isItemIdInFieldStack(wallId, wallPosition) then
-        world:createItemFromId(wallId, 1, wallPosition, true, 333, nil)
+    if not common.isItemIdInFieldStack(wall, wallPosition) then
+        world:createItemFromId(wall, 1, wallPosition, true, 333, nil)
     end
 end
 
