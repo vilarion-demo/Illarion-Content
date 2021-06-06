@@ -149,3 +149,11 @@ Position List,lockId,English Description,German Description,locked on reload [fa
 "{333, 507, 1}",503,Mt Zotmore,,
 -- Gm Castle 6xx,,,,
 "{223, 103, 0}",600,Divine Prison,Göttliches Gefängnis,
+-- Irundar
+"{319, 480, -24}","irundarLocked","North-western exit of castle dining room, locked for future use.",,
+"{332, 537, -23}","irundarLocked","Arch-mages room at the top of the mage tower, locked for future use.",,
+"{320, 538, -25}","irundarGate",,,
+"{307, 520, -25}","irundarBlacksmith",,,
+"{308, 520, -25}","irundarBlacksmith",,,
+"{327, 538, -25}","irundarMage","Only to be opened with password.",,
+"{327, 539, -25}","irundarMage","Only to be opened with password.",,
