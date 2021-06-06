@@ -17,20 +17,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local playerlookat = require("server.playerlookat")
 local lookat = require("base.lookat")
+local irundar = require("quest.irundar.mirror")
 
 local M = {}
 -- belongs also to item id 2873
 
 -- UPDATE items SET itm_script='item.id_2874_mirror' WHERE itm_id = 2874;
 
-local ladderPosition = position(-32,193,-8)
-local mirrorPosition = position(-28,193,-8)
-
 function M.LookAtItem(User, Item)
     local lookAt = lookat.GenerateLookAt(User, Item)
 
-    lookAt = quest.irundar.mirror.LookAt(User, Item, lookAt)
-    
+    lookAt = irundar.LookAt(User, Item, lookAt)
+
     return lookAt
 end
 
@@ -42,4 +40,3 @@ function M.UseItem(User, SourceItem)
 end
 
 return M
-
