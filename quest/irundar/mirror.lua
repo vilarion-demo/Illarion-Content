@@ -62,7 +62,8 @@ end
 
 function removeLadder(user)
     if common.isItemIdInFieldStack(ladder, ladderPosition)  then
-	    common.InformNLS(user, "Als du dich entfernst ist die Leiter verschwunden.", "As you turn away, the ladder has vanished.")
+        common.InformNLS(user, "Als du dich entfernst ist die Leiter verschwunden.",
+                               "As you turn away, the ladder has vanished.")
         common.removeItemIdFromFieldStack(ladder, ladderPosition)
     end
 end

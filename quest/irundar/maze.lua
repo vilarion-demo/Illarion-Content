@@ -64,9 +64,11 @@ function M.createIrundarMaze()
 
             -- does the adjacent room have doors? If not, we have not been there yet!
             if maze[currentPosition.x - 1][currentPosition.y] and maze[currentPosition.x - 3][currentPosition.y] and
-                    maze[currentPosition.x - 2][currentPosition.y + 1] and maze[currentPosition.x - 2][currentPosition.y - 1] then
+                    maze[currentPosition.x - 2][currentPosition.y + 1] and
+                    maze[currentPosition.x - 2][currentPosition.y - 1] then
                 numberOfAdjacentRooms = numberOfAdjacentRooms + 1
-                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x - 2, y = currentPosition.y, doorOffsetX = 1, doorOffsetY = 0}
+                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x - 2,
+                                                        y = currentPosition.y, doorOffsetX = 1, doorOffsetY = 0}
             end
         end
 
@@ -75,9 +77,11 @@ function M.createIrundarMaze()
 
             -- does the adjacent room have doors? If not, we have not been there yet!
             if maze[currentPosition.x + 1][currentPosition.y] and maze[currentPosition.x + 3][currentPosition.y] and
-                    maze[currentPosition.x + 2][currentPosition.y + 1] and maze[currentPosition.x + 2][currentPosition.y - 1] then
+                    maze[currentPosition.x + 2][currentPosition.y + 1] and
+                    maze[currentPosition.x + 2][currentPosition.y - 1] then
                 numberOfAdjacentRooms = numberOfAdjacentRooms + 1
-                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x + 2, y = currentPosition.y, doorOffsetX = -1, doorOffsetY = 0}
+                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x + 2,
+                                                        y = currentPosition.y, doorOffsetX = -1, doorOffsetY = 0}
             end
         end
 
@@ -86,9 +90,11 @@ function M.createIrundarMaze()
 
             -- does the adjacent room have doors? If not, we have not been there yet!
             if maze[currentPosition.x][currentPosition.y - 1] and maze[currentPosition.x][currentPosition.y - 3] and
-                    maze[currentPosition.x - 1][currentPosition.y - 2] and maze[currentPosition.x + 1][currentPosition.y - 2] then
+                    maze[currentPosition.x - 1][currentPosition.y - 2] and
+                    maze[currentPosition.x + 1][currentPosition.y - 2] then
                 numberOfAdjacentRooms = numberOfAdjacentRooms + 1
-                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x, y = currentPosition.y - 2, doorOffsetX = 0, doorOffsetY = 1}
+                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x,
+                                                        y = currentPosition.y - 2, doorOffsetX = 0, doorOffsetY = 1}
             end
         end
 
@@ -97,9 +103,11 @@ function M.createIrundarMaze()
 
             -- does the adjacent room have doors? If not, we have not been there yet!
             if maze[currentPosition.x][currentPosition.y + 1] and maze[currentPosition.x][currentPosition.y + 3] and
-                    maze[currentPosition.x - 1][currentPosition.y + 2] and maze[currentPosition.x + 1][currentPosition.y + 2] then
+                    maze[currentPosition.x - 1][currentPosition.y + 2] and
+                    maze[currentPosition.x + 1][currentPosition.y + 2] then
                 numberOfAdjacentRooms = numberOfAdjacentRooms + 1
-                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x, y = currentPosition.y + 2, doorOffsetX = 0, doorOffsetY = -1}
+                adjacentRooms[numberOfAdjacentRooms] = {x = currentPosition.x,
+                                                        y = currentPosition.y + 2, doorOffsetX = 0, doorOffsetY = -1}
             end
         end
 
@@ -108,7 +116,8 @@ function M.createIrundarMaze()
             local i = math.random(numberOfAdjacentRooms)
 
             -- create a door to the room we will visit next
-            maze[adjacentRooms[i].x + adjacentRooms[i].doorOffsetX][adjacentRooms[i].y + adjacentRooms[i].doorOffsetY] = false
+            maze[adjacentRooms[i].x + adjacentRooms[i].doorOffsetX][adjacentRooms[i].y
+                 + adjacentRooms[i].doorOffsetY] = false
 
             -- put the current room onto the stack so that we can go back later
             top = top + 1
@@ -132,7 +141,8 @@ function M.createIrundarMaze()
     for x = minX, maxX do
         for y = minY, maxY do
             currentPosition = position(x, y, level)
-            local isWallOnField = world:isItemOnField(currentPosition) and world:getItemOnField(currentPosition).id == wallItemId
+            local isWallOnField = world:isItemOnField(currentPosition) and
+                  world:getItemOnField(currentPosition).id == wallItemId
 
             -- only create/delete wall if it really changes
             if isWallOnField ~= maze[x][y] then
