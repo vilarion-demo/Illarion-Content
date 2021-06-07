@@ -14,16 +14,16 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO triggerfields VALUES (370, 522, -28, 'quest.irundar.pressureplates');
--- INSERT INTO triggerfields VALUES (370, 532, -28, 'quest.irundar.pressureplates');
+-- INSERT INTO triggerfields VALUES (370, 522, -29, 'quest.irundar.pressureplates');
+-- INSERT INTO triggerfields VALUES (370, 532, -29, 'quest.irundar.pressureplates');
 
 local common = require("base.common")
 local M = {}
 
 local wall = 287
-local northernPlate = position(370, 522, -28)
-local southernPlate = position(370, 532, -28)
-local wallPosition = position(365, 527, -28)
+local northernPlate = position(370, 522, -29)
+local southernPlate = position(370, 532, -29)
+local wallPosition = position(365, 527, -29)
 local lockSound = 19
 local unlockSound = 20
 
