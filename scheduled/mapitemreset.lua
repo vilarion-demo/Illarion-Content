@@ -15,12 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
+local irundar = require("quest.irundar.lockdoors")
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.mapitemreset', 30, 30, 'resetMapitem')
 
 local M = {}
 
 function M.resetMapitem()
+
+    irundar.lockDoors()
 
   -- close rockwall entrance again (item 623)
   local pos = position(894, 627, 0);
